@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding :0;
+  box-sizing: border-box;
+}
+
+
+:root {
+  /* Dark Theme */
+  --very-dark-blue-top: hsl(230, 17%, 14%);     /* BG TOP */
+  --very-dark-blue: hsl(232, 19%, 15%);         /* BG */
+  --dark-desaturated-blue: hsl(228, 28%, 20%);  /* Card BG */
+  --desaturated-blue: hsl(228, 34%, 66%);       /* Text */
+  --white: hsl(0, 0%, 100%);                    /* text */
+  --toggle-dark: linear-gradient(hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+  --border-top: hsl(329, 70%, 58%);
+  /* --border-top: linear-gradient(hsl(37, 97%, 70%), hsl(329, 70%, 58%)); */
+  /* Light Theme */
+  --very-pale-blue-top: hsl(225, 100%, 98%);  /* BG TOP */
+  --white-bg: hsl(0, 0%, 100%);   /* BG */
+  --light-grayish-blue: hsl(227, 47%, 96%);   /* Card BG */   
+  --dark-grayish-blue: hsl(228, 12%, 44%);    /* Text */
+
+
+}
+
+
+#root {
+  width: 100%;
+}
+
+/* utilities */
+.shadow {
+  box-shadow:0 .625rem 1rem rgba(35,35,35,.1)!important;
+}
+
+
+#main {
+  padding: 80px 50px;
+  width: 100%;
+  margin-top: 0;
+  position: relative;
+  min-height: 100vh;
+  transition: 0.2s ease-in-out;
+  font-family: 'Inter', sans-serif;
+}
+
+div.top-pattern {
+  width: 100%;
+  height: 20rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+div.app {
+  position: relative;
+  margin: auto;
+  width: 60%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid var(--white); */
+  z-index: 99;
+}
+
+.app .top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.app .left h1 {
+  line-height: 1.5rem;
+  margin-bottom: 7px;
+  font-weight: 700;
+}
