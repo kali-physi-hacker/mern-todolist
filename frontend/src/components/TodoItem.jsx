@@ -31,13 +31,12 @@ const TodoItem = props => {
 
 
     const updateTodo = e => {
-        /**
-         * TODO:
-         *      1. Make an api call to update the todoItem.
-         *          - change completed to given value
-         */
+        app_context.dispatchState({type: APP_ACTIONS.SET_LOADING, loading: false})
         axios.put(`/api/tasks/${props._id}`, {completed: !props.completed})
-        .then(response=> app_context.dispatchState({type: APP_ACTIONS.UPDATE_TODO_ITEM, todoItem: response.data}))
+        .then(response=> {
+            app_context.dispatchState({type: APP_ACTIONS.UPDATE_TODO_ITEM, todoItem: response.data})
+            app_context.dispatchState({type: APP_ACTIONS.SET_LOADING, loading: false})
+        })
         .catch(error=> console.log(error.response))
     }
 

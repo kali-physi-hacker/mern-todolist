@@ -24,11 +24,14 @@ const AddTaskInputForm = () => {
     }
 
     const addTodoItem = e => {
-        // TODO: Make api call to my backend to save todo and add the returned data to the todoList (app)
         e.preventDefault();
+        app_context.dispatchState({type: APP_ACTIONS.SET_LOADING, loading: true})
         const todoItem = {name: name}
         axios.post('/api/tasks/', todoItem)
-        .then(response=> app_context.dispatchState({type: APP_ACTIONS.ADD_TODO_ITEM, todoItem: response.data}))
+        .then(response=> {
+            app_context.dispatchState({type: APP_ACTIONS.ADD_TODO_ITEM, todoItem: response.data})
+            app_context.dispatchState({type: APP_ACTIONS.SET_LOADING, loading: false})
+        })
         .catch(error=> console.log(error.response))
         
         setName("")

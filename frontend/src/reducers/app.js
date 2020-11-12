@@ -2,7 +2,8 @@ export const APP_ACTIONS = {
     TOGGLE_THEME: "TOGGLE_THEME",
     ADD_TODO_ITEM: "ADD_TODO_ITEM",
     GET_TODO_ITEMS: "GET_TODO_ITEMS",
-    UPDATE_TODO_ITEM: "UPDATE_TODO_ITEM"
+    UPDATE_TODO_ITEM: "UPDATE_TODO_ITEM",
+    SET_LOADING: "SET_LOADING"
 }
 
 
@@ -13,7 +14,8 @@ export const THEME = {
 
 export const initialAppState = {
     dark_theme: false,
-    todoList: []
+    todoList: [],
+    loading: false
 }
 
 
@@ -40,6 +42,12 @@ export const reducer = (state, action) => {
                 ...state,
                 todoList: [...todoList, action.todoItem]
             }
+        case APP_ACTIONS.SET_LOADING:
+            return {
+                ...state,
+                loading: action.loading
+            }
+
         default:
             return initialAppState;
     }
