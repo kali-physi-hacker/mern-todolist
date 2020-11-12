@@ -39,7 +39,7 @@ const AddTaskInputForm = () => {
 
     return (
         <form onSubmit={addTodoItem}>
-            <input value={name} onChange={e=> setName(e.target.value)} className="shadow" style={addInputStyle} type="text" />
+            <input value={name} onChange={e=> setName(e.target.value)} className="shadow" style={addInputStyle} type="text" placeholder="Add a new task..." />
         </form>
     )
 }
