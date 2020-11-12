@@ -31,7 +31,8 @@ const TodoList = () => {
     return (
         <div style={todoListStyles}>
             {
-                app_context.state.loading ? <Loader /> : 
+                app_context.state.loading ? <Loader /> :
+                app_context.state.todoList.length === 0 ? <h2 style={{textAlign: "center"}}>Yay have no tasks 😑</h2> :
                 app_context.state.todoList.map(todoItem=> (
                     <TodoItem key={todoItem._id} {...todoItem} />
                 ))
