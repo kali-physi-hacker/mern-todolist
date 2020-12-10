@@ -15,17 +15,13 @@ const TodoList = () => {
     }
 
     useEffect(()=> {
-        app_context.dispatchState({type: APP_ACTIONS.SET_LOADING, loading: true})
-        axios.get('/api/tasks/')
-            .then(response=> {
-                app_context.dispatchState({type: APP_ACTIONS.GET_TODO_ITEMS, todoList:response.data})
-                app_context.dispatchState({type: APP_ACTIONS.SET_LOADING, loading: false})
-            })
-            .catch(error=> {
-                console.log(error.response)
-                app_context.dispatchState({type: APP_ACTIONS.SET_LOADING, loading: false})
-            })
-        
+        axios.get("/api/todos")
+        .then(response=> {
+            app_context.dispatchState({type: APP_ACTIONS.GET_TODO_ITEMS, todoList: response.data})
+        })
+        .catch(error=> {
+            console.log(error)
+        })
     }, [])
 
     return (

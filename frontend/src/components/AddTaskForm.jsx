@@ -24,17 +24,14 @@ const AddTaskInputForm = () => {
     }
 
     const addTodoItem = e => {
-        e.preventDefault();
-        app_context.dispatchState({type: APP_ACTIONS.SET_LOADING, loading: true})
-        const todoItem = {name: name}
-        axios.post('/api/tasks/', todoItem)
+        e.preventDefault()
+        axios.post("/api/todos/new", {name})
         .then(response=> {
             app_context.dispatchState({type: APP_ACTIONS.ADD_TODO_ITEM, todoItem: response.data})
-            app_context.dispatchState({type: APP_ACTIONS.SET_LOADING, loading: false})
         })
-        .catch(error=> console.log(error.response))
-        
-        setName("")
+        .catch(error=> {
+            console.log(error)
+        })
     }
 
     return (
